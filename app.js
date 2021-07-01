@@ -44,6 +44,11 @@ app.post('/hello', (req, res) => {
     
 });
 
+app.post('/goodbye', (req, res) => {
+    res.clearCookie('username');
+    res.redirect('/hello');
+});
+
 app.get('/cards', (req, res) => {
     res.render('card', {
         prompt: "Who is buried in Grant's tomb?",
